@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-dark text-gray-100;
+}
+
+[data-tooltips] {
+  @apply relative;
+
+  @apply before:absolute before:content-[attr(data-tooltips)] before:opacity-0 before:transition-all hover:before:opacity-100 before:top-[-36px] hover:before:bg-[#282828] before:text-white before:left-1/2 before:-translate-x-1/2 before:rounded-sm before:text-base before:px-2 before:pointer-events-none before:whitespace-nowrap before:w-max hover:before:delay-300;
+}
