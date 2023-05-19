@@ -24,6 +24,7 @@ export default function App() {
 
   const { playerId } = useContext(PlayerContext);
 
+
   useEffect(() => {
     localStorage.setItem("minizing-playing", playerId);
   }, [playerId]);

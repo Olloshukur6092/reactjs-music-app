@@ -7,9 +7,12 @@ import { formatDuration } from "../shared/utils";
 import { getPlaylistInfo } from "../services/playlist";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
+import { Title } from "../utils/Title";
 // import axios from "axios";
 
 const Playlist: FC = () => {
+  Title('SongS - Playlist!')
+
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
   const { id } = useParams();

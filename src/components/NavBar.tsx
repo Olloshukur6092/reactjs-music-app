@@ -32,8 +32,8 @@ const Navbar: FC = () => {
     >
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img className="w-8 h-8" src={Logo} alt="" />
-          <h1 className="text-xl">SongS</h1>
+          <img className="w-8 h-8 mr-1" src={Logo} alt="Not Found" />
+          <h1 className="text-xl font-bold">SONGS</h1>
         </Link>
         <button
           onClick={() => setIsActive(!isActive)}

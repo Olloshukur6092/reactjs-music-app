@@ -8,8 +8,11 @@ import { formatNumber } from "../shared/utils";
 import { getArtistInfo } from "../services/artist";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
+import { Title } from "../utils/Title";
 
 const Artist: FC = () => {
+  Title('SongS - Artist!')
+
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
   const { id } = useParams();

@@ -8,8 +8,11 @@ import { formatNumber } from "../shared/utils";
 import { searchByKeywords } from "../services/search";
 import { useLocation } from "react-router-dom";
 import useSWR from "swr";
+import { Title } from "../utils/Title";
 
 const Search: FC = () => {
+  Title('SongS - Search!')
+
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
   const location = useLocation();

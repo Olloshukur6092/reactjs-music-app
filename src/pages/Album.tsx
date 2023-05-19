@@ -7,8 +7,12 @@ import { PlayerContext } from "../context/PlayerContext";
 import { formatDuration } from "../shared/utils";
 import { getAlbumInfo } from "../services/album";
 import useSWR from "swr";
+import { Title } from "../utils/Title";
 
 const Album: FC = () => {
+
+  Title('Songs - Album!')
+
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
   const { id } = useParams();

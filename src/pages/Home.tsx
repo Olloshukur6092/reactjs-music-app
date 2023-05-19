@@ -6,8 +6,10 @@ import { PlayerContext } from "../context/PlayerContext";
 import { getHomeContent } from "../services/home";
 import { useContext } from "react";
 import useSWR from "swr";
+import { Title } from "../utils/Title";
 
 const Home: FC = () => {
+  Title('Songs');
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
   const { data, error } = useSWR("home", () => getHomeContent(), {

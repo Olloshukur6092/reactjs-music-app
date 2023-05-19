@@ -78,44 +78,39 @@ const Player: FC = () => {
     // console.log(h1.current?.innerText, p.current?.innerText);
     let url = h1.current?.innerText + " " + p.current?.innerText;
     window.open(`https://www.youtube.com/results?search_query=${url}`);
-  }
-
+  };
 
   return (
     <>
-      {data?.preview_url !== null ? (
-        <audio
-          ref={audioRef}
-          onTimeUpdateCapture={() => {
-            if (audioRef.current) {
-              setCurrentTime(audioRef.current.currentTime);
-            }
-          }}
-          onLoadedDataCapture={() => {
-            if (audioRef.current) {
-              setCurrentTime(0);
-              setDuration(audioRef.current.duration);
-            }
-          }}
-          onEndedCapture={() => {
-            if (!isLoop) {
-              setCurrentTime(0);
-              setIsPaused(true);
-            }
-          }}
-          className="hidden"
-          hidden
-          src={data?.preview_url}
-          loop={isLoop}
-          autoPlay={false}
-        ></audio>
-      ) : (
-        ""
-      )}
+      <audio
+        ref={audioRef}
+        onTimeUpdateCapture={() => {
+          if (audioRef.current) {
+            setCurrentTime(audioRef.current.currentTime);
+          }
+        }}
+        onLoadedDataCapture={() => {
+          if (audioRef.current) {
+            setCurrentTime(0);
+            setDuration(audioRef.current.duration);
+          }
+        }}
+        onEndedCapture={() => {
+          if (!isLoop) {
+            setCurrentTime(0);
+            setIsPaused(true);
+          }
+        }}
+        className="hidden"
+        hidden
+        src={data?.preview_url}
+        loop={isLoop}
+        autoPlay={false}
+      ></audio>
 
       <div className="sticky bottom-0 left-0 right-0 h-20 flex items-center bg-dark border-t-2 border-gray-800 px-[5vw]">
         <div className="flex-1 flex justify-start gap-3 items-center">
-          {!isLoading && !isError && (
+          {!isLoading && (
             <>
               <img
                 className="w-14 h-14 object-cover"
@@ -123,7 +118,9 @@ const Player: FC = () => {
                 alt=""
               />
               <div className="hidden md:block">
-                <h1 ref={h1} className="line-clamp-1">{data.name}</h1>
+                <h1 ref={h1} className="line-clamp-1">
+                  {data.name}
+                </h1>
                 <p ref={p} className="text-gray-400 line-clamp-1">
                   {data.artists.map((artist, index) => (
                     <Fragment key={artist.id}>
@@ -186,7 +183,11 @@ const Player: FC = () => {
             >
               <RiExternalLinkLine className="fill-white w-5 h-5" />
             </a>
-            <span onClick={redirectYoutube} className="text-red-600 cursor-pointer">
+            <span
+              onClick={redirectYoutube}
+              className="text-red-600 cursor-pointer"
+              data-tooltips="Open in Youtube"
+            >
               <BsYoutube />
             </span>
           </div>
@@ -212,9 +213,8 @@ const Player: FC = () => {
               {formatDuration(duration * 1000)}
             </span>
           </div>
-          
         </div>
-        
+
         <div className="flex-1 flex justify-end items-center gap-3">
           {!isLoading && !isError && (
             <>
