@@ -76,7 +76,7 @@ const Navbar: FC = () => {
           type="text"
           className="bg-dark border border-gray-600 outline-none rounded-full py-3 px-4 text-xl md:w-60"
           placeholder="Search..."
-          style={{ width: "600px" }}
+          style={{ width: "500px" }}
         />
         <button className="absolute right-2 top-1/2 -translate-y-1/2">
           <FaSearch className="fill-gray-400 w-5 h-5" />
