@@ -24,7 +24,6 @@ export default function App() {
 
   const { playerId } = useContext(PlayerContext);
 
-
   useEffect(() => {
     localStorage.setItem("minizing-playing", playerId);
   }, [playerId]);
@@ -74,7 +73,6 @@ export default function App() {
   return (
     <>
       <Navbar />
-
       <div className="min-h-[calc(100vh-144px)]">
         <Routes>
           <Route index element={<Home />} />

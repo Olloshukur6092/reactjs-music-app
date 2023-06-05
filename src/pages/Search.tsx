@@ -11,7 +11,7 @@ import useSWR from "swr";
 import { Title } from "../utils/Title";
 
 const Search: FC = () => {
-  Title('SongS - Search!')
+  Title("SongS - Search!");
 
   const { setPlayerId, setIsPlayerIdChanged } = useContext(PlayerContext);
 
@@ -31,23 +31,6 @@ const Search: FC = () => {
     <div className="mx-[5vw] mb-5">
       <h1 className="text-3xl mt-5">Search result for: {q}</h1>
 
-      <h1 className="mt-5 mb-2 text-2xl">Artists</h1>
-
-      <DataGrid
-        type="link"
-        handler={(id: string) => `/artist/${id}`}
-        data={
-          data.artists?.items
-            .filter((artist) => artist.name)
-            .map((artist) => ({
-              id: artist.id,
-              image: artist?.images?.[0]?.url,
-              title: artist.name,
-              description: `${formatNumber(artist.followers.total)} followers`,
-            })) as any
-        }
-      />
-
       <h1 className="mt-5 mb-2 text-2xl">Tracks</h1>
 
       <DataGrid
@@ -66,6 +49,22 @@ const Search: FC = () => {
               description: track?.artists
                 .map((artist) => artist.name)
                 .join(", "),
+            })) as any
+        }
+      />
+      <h1 className="mt-5 mb-2 text-2xl">Artists</h1>
+
+      <DataGrid
+        type="link"
+        handler={(id: string) => `/artist/${id}`}
+        data={
+          data.artists?.items
+            .filter((artist) => artist.name)
+            .map((artist) => ({
+              id: artist.id,
+              image: artist?.images?.[0]?.url,
+              title: artist.name,
+              description: `${formatNumber(artist.followers.total)} followers`,
             })) as any
         }
       />

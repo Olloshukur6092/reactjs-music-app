@@ -27,8 +27,8 @@ const Navbar: FC = () => {
   return (
     <div
       className={`${
-        isActive ? "h-[122px]" : "h-16"
-      } sm:!h-16 border-b border-gray-800 flex flex-col sm:flex-row justify-center gap-4 sm:justify-between items-stretch sm:items-center px-[5vw]`}
+        isActive ? "h-[122px]" : "h-20"
+      } sm:!h-20 border-b border-gray-800 flex flex-col sm:flex-row justify-center gap-4 sm:justify-between items-stretch sm:items-center px-[5vw]`}
     >
       <div className="flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
@@ -74,8 +74,9 @@ const Navbar: FC = () => {
           onKeyUp={(e) => e.stopPropagation()}
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
-          className="bg-dark border border-gray-600 outline-none rounded-full py-2 px-3 w-full md:w-60"
+          className="bg-dark border border-gray-600 outline-none rounded-full py-3 px-4 text-xl md:w-60"
           placeholder="Search..."
+          style={{ width: "600px" }}
         />
         <button className="absolute right-2 top-1/2 -translate-y-1/2">
           <FaSearch className="fill-gray-400 w-5 h-5" />
